@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: English-Survival
+  description: TFB English Survival
+  annotations:
+    github.com/project-slug: theflyingbirdsmc/english-survival
+    'backstage.io/kubernetes-namespace': tfb-servers
+    'backstage.io/kubernetes-id': english-survival
+  #   backstage.io/techdocs-ref: dir:.
+spec:
+  type: service
+  owner: theflyingbirdsmc/services
+  lifecycle: production
