@@ -1,0 +1,157 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: english-survival
+  namespace: tfb-servers
+  labels:
+    backstage.io/kubernetes-id: english-survival
+spec:
+  type: NodePort
+  ports:
+  - name: english-survival
+    port: 30100
+    targetPort: 30100
+    nodePort: 30100
+  selector:
+    run: english-survival
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: english-survival
+  namespace: tfb-servers
+  labels:
+    run: english-survival
+    backstage.io/kubernetes-id: english-survival
+spec:
+  serviceName: "english-survival"
+  replicas: 1
+  selector:
+    matchLabels:
+      run: english-survival
+  template:
+    metadata:
+      labels:
+        run: english-survival
+        backstage.io/kubernetes-id: english-survival
+    spec:
+      securityContext:
+        runAsUser: 1000
+        fsGroup: 1000
+      volumes:
+      - name: git-repo-volume
+        emptyDir: {}
+      - name: git-secret-volume
+        secret:
+          secretName: git-secret
+          defaultMode: 256
+      - name: gradle-credentials
+        secret:
+          secretName: gradle-credentials
+      initContainers:
+      - name: delete-old-jar-files
+        image: alpine
+        command: ["/bin/sh", "-c"]
+        args: ["rm -rf /data/*.jar && rm -rf /data/plugins/*.jar"]
+        volumeMounts:
+        - name: english-survival-pv
+          mountPath: /data
+      - name: git-sync
+        image: k8s.gcr.io/git-sync-amd64:v2.0.6
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: git-repo-volume
+          mountPath: /git-data
+        env:
+        - name: GIT_SYNC_REPO
+          value: "https://github.com/theflyingbirdsmc/english-survival.git"
+        - name: GIT_SYNC_BRANCH
+          value: "main"
+        - name: GIT_SYNC_ROOT
+          value: "/git-data"
+        - name: GIT_SYNC_DEST
+          value: "temp"
+        - name: GIT_SYNC_PERMISSIONS
+          value: "0777"
+        - name: GIT_SYNC_ONE_TIME
+          value: "true"
+      - name: move-files
+        image: alpine
+        command: ["/bin/sh", "-c"]
+        args: ["cp -r /git-data/temp/* /data && rm -rf /git-data/temp"]
+        volumeMounts:
+        - name: git-repo-volume
+          mountPath: /git-data
+        - name: english-survival-pv
+          mountPath: /data
+      - name: gradle-build
+        image: gradle:latest
+        volumeMounts:
+        - name: english-survival-pv
+          mountPath: /data
+        env:
+        - name: MAVEN_URL
+          value: "https://jfrog.theflyingbirds.net/artifactory"  # Set your Maven repository URL here
+        - name: MAVEN_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: gradle-credentials
+              key: username
+        - name: MAVEN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: gradle-credentials
+              key: token
+        command: ["/bin/sh", "-c"]
+        args: ["cd /data && gradle update -PmavenUrl=$MAVEN_URL -PmavenUsername=$MAVEN_USERNAME -PmavenPassword=$MAVEN_PASSWORD"]
+      containers:
+      - name: english-survival
+        image: itzg/minecraft-server:java21
+        env:
+          - name: EULA
+            value: "TRUE"
+          - name: TYPE
+            value: "CUSTOM"
+          - name: "CUSTOM_SERVER"
+            value: "/data/server.jar"
+          - name: ONLINE_MODE
+            value: "FALSE"
+          - name: SERVER_NAME
+            value: "english-survival"
+          - name: "MEMORY"
+            value: "16G"
+        ports:
+          - containerPort: 30100
+        command: ["/bin/sh", "-c"]
+        args: ["apt-get update && apt-get install -y screen && screen -dmS minecraft /start && tail -f /dev/null"]
+        securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            allowPrivilegeEscalation: true
+        volumeMounts:
+          - name: english-survival-pv
+            mountPath: /data
+          - name: git-repo-volume
+            mountPath: /git-data
+        resources:
+          requests:
+            memory: "16Gi"
+        readinessProbe:
+          exec:
+            command: [ "/usr/local/bin/mc-monitor", "status", "--host", "localhost", "-port", "30100" ]
+          initialDelaySeconds: 20
+          periodSeconds: 5
+          failureThreshold: 20
+        livenessProbe:
+          exec:
+            command: ["/usr/local/bin/mc-monitor", "status", "--host", "localhost", "-port", "30100"]
+          initialDelaySeconds: 120
+          periodSeconds: 60
+  volumeClaimTemplates:
+  - metadata:
+      name: english-survival-pv
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 10Gi
