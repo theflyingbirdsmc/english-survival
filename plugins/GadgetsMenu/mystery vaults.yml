@@ -1,0 +1,15 @@
+Mystery-Vaults:
+  english-survival-right:
+    BlockFace: WEST
+    Location:
+      world: world_english_survival
+      x: 9.0
+      y: 66.0
+      z: -17.0
+  english-survival-left:
+    BlockFace: EAST
+    Location:
+      world: world_english_survival
+      x: -9.0
+      y: 66.0
+      z: -17.0
