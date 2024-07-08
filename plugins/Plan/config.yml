@@ -239,6 +239,7 @@ World_aliases:
         world: world_english_survival
         world_nether: world_english_survival_nether
         world_the_end: world_english_survival_the_end
+        world_english_survival: "world_english_survival"
     # List of - "alias:regex" rules, Set alias of multiple worlds that match regex to group them
     Regex:
       - "Alias for world:^abc$"
