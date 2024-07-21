@@ -21,7 +21,7 @@ Enabled: true
 Hikari: true
 
 # The host and the port to connect to
-Host: tfb-network-dk:3306
+Host: tfb-network-db:3306
 
 # The database name
 Database: tfb_network_chatcontrolred
