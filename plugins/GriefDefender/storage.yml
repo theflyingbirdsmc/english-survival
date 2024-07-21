@@ -1,7 +1,7 @@
 database:
     # The database address and port. Use format host:port.
     # Note: MySQL and MariaDB default port to 3306
-    address: localhost
+    address: tfb-english-survival-db
 
     # Enable this setting to force GD to always read and write from database.
     # Note: Enable this setting if you need to share database data across multiple servers.
@@ -9,7 +9,7 @@ database:
     always-read-write-db: false
 
     # The database name.
-    database-name: griefdefender
+    database-name: tfb_english_survival_griefdefender
     hikari-mysql-properties:
         alwaysSendSetIsolation: "false"
         cacheCallableStmts: "true"
@@ -29,7 +29,7 @@ database:
     load-claims-async: true
 
     # The database password.
-    password: ""
+    password: "WaLFY@^9!yc8Kg*y^DPt6urL6MS$HV"
     pool-settings:
         # The maximum number of milliseconds to wait for a connection before timeout.
         connection-timeout: 5000
@@ -48,7 +48,7 @@ database:
     table-prefix: gd_
 
     # The database username. (Default: root)
-    username: root
+    username: tfb_english_survival
 
 # The data storage method. Current available storage types : hocon, mariadb, mysql, postgresql
-storage-method: hocon
+storage-method: mariadb

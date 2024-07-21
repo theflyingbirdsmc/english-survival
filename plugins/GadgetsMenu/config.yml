@@ -7,7 +7,7 @@
 Player-Data:
   Storage: mysql
   MySQL:
-    hostname: tfb-database-mariadb
+    hostname: tfb-network-dk
     username: tfb_gadgetsmenu
     database: gadgetsmenu
     port: '3306'
