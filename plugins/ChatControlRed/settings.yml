@@ -169,7 +169,7 @@ Channels:
   #          See Sound_Notify.Sound for help
   #
   List:
-    Danish:
+    English:
       Format: chat
       Format_Spy: '@noprefix chat'
       Bungee_Spy: false
