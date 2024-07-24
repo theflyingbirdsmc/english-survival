@@ -65,7 +65,7 @@ blocked-nicknames:
 database-enabled: true
 host: tfb-network-db
 port: '3306'
-database: hexnicks
+database: tfb_network_hexnicks
 username: tfb_network
 password: $Z@jJKSLcd7xUekU5qF&VW3#ndU&mm
 use-ssl: false
