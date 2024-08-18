@@ -29,7 +29,7 @@ Database:
     MySQL:
         Host: tfb-network-db
         Port: 3306
-        User: tfb_plan
+        User: tfb_network
         Password: $Z@jJKSLcd7xUekU5qF&VW3#ndU&mm
         Database: plan
         # Launch options to append after mysql driver address
