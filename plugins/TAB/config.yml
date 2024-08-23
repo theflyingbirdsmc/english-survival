@@ -173,9 +173,9 @@ layout:
   enabled: false
 permission-refresh-interval: 1000
 playerlist-objective:
-  enabled: false
+  enabled: true
   value: '%ping%'
   disable-condition: '%world%=disabledworld'
-  fancy-value: '&7Ping: %ping%'
+  fancy-value: '&7%ping%'
 ping-spoof:
   enabled: false
