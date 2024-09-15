@@ -1,6 +1,6 @@
 dependencies {
     // Network plugins
-    implementation 'Server:Paper:1.20.4-497'
+    implementation 'Server:Paper:1.21.1-77'
     implementation 'Plugin:Tebex:2.0.+'
     implementation 'Plugin:ChatControlRed:10.28.0'
     implementation 'Plugin:CommandPanels:3.+'
