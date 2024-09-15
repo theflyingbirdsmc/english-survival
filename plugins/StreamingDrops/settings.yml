@@ -1,0 +1,65 @@
+Debug: false
+SendStreamerListOnJoin: false
+AllowedStreamers:
+- morelaid
+DropOptions:
+  Interval: 60
+  DropChance: 5
+  RandomDrops: 1
+  AllowMultiStreams: true
+  DropsPerStreamer: true
+  DropsOnlyForOnlinePlayer: false
+  DropsOnlyForFollower: false
+  DropsOnRaid: false
+AllowedWorlds:
+- world
+- world_nether
+- world_the_end
+BlacklistForTwitchChannel:
+- moobot
+- nightbot
+- streamlabs
+- streamelements
+- phantombot
+- wizebot
+- botisimo
+- coebot
+- deepbot
+AlwaysCommands:
+- sdpublic &2[&4Streaming&fDrops&2]&f &6For watching &2%streamer%&6, &9%player%&6
+  have received in-game drops
+GeneralDrops:
+- give %player% emerald 3 | sdprivate %player% You got &63&f emeralds! | sendtwitch
+  %streamer% @%twitchuser%  got 3 emeralds!
+- give %player% diamond 2 | sdprivate %player% You got &62&f diamonds! | sendtwitch
+  %streamer% @%twitchuser%  got 2 diamonds!
+- give %player% coal_block 1 | sdprivate %player% You got &61&f block of coal! | sendtwitch
+  %streamer% @%twitchuser%  got 1 block of coal!
+PlaceholderAPI:
+  PlayerTopDropsPrefix: '&2◄&6✪&2►'
+  Livetag: '&f[&4Live&f]'
+  Offlinetag: '&f[&7Offline&f]'
+Format:
+  OnlineFormat: '&b&n%streamer% - [Link]'
+  TopDropsFormat: '&f%number%. &6%player%&f - %amount%'
+  TwitchChatFormat: '[%twitchuser%](%twitchcolor%)&f: %twitchmessage%'
+BannedPlayerToBlacklist: true
+Discord:
+  SendLiveMessage: false
+  Webhook_Url: https://discordapp.com/api/webhooks/...
+  Username: StreamingDrops
+UseSimpleConnection: true
+GlobalStreamerTag: '#StreamingDrops'
+UseCustomMetrics: true
+VerifyAccount: false
+StreamerDrops:
+  morelaid:
+    IncludeGeneralDrops: true
+    Drops:
+    - give %player% emerald 10 | sdprivate %player% You got &610&f emeralds! | sendtwitch
+      %streamer% @%twitchuser%  got 10 emeralds!
+    - give %player% diamond 20 | sdprivate %player% You got &620&f diamonds! | sendtwitch
+      %streamer% @%twitchuser%  got 20 diamonds!
+    - give %player% coal_block 30 | sdprivate %player% You got &630&f blocks of coal!
+      | sendtwitch %streamer% @%twitchuser%  got 30 blocks of coal!
+    UseGlobalStreamerTag: false

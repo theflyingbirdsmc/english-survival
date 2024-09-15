@@ -1,30 +1,30 @@
 # A collection of definitions designed for vanilla minecraft.
 # Each group defined will be displayed in the flag or option GUI for users.
 # Groups can have the following settings : 
-#    enabled=<true|false>: Whether the group is enabled.
-#    admin-group=<true|false>: Whether this group is considered for admin use only.
-#    Note: GUI toggles in PRESETS will always apply to current claim only.
-#          It is recommended not to assign this permission to users for best experience.
-#    value=<true|false>: This is used to set a default value for the definition. It is only used in conjunction with 'override=<type>, default=<type> settings.
-#    contexts=["key=value"]: A list of definition contexts that will be applied to all permissions.
+# enabled=<true|false>: Whether the group is enabled.
+# admin-group=<true|false>: Whether this group is considered for admin use only.
+# Note: GUI toggles in PRESETS will always apply to current claim only.
+#      It is recommended not to assign this permission to users for best experience.
+# value=<true|false>: This is used to set a default value for the definition. It is only used in conjunction with 'override=<type>, default=<type> settings.
+# contexts=["key=value"]: A list of definition contexts that will be applied to all permissions.
 # Note: This is primary used with 'default' and 'override' contexts. Ex. contexts=["default=global"]
 # Note: You must specify one of the following contexts :'gd_claim_default=<type>' or 'gd_claim_override=<type>''
 # Note: Context values support wildcards '?' and '*' by using Apache's wildcard matcher.
-#  The wildcard '?' represents a single character.
-#  The wildcard '*' represents zero or more characters.
+# The wildcard '?' represents a single character.
+# The wildcard '*' represents zero or more characters.
 # Each group will have an associated permission in order to be viewable.
 # The user groups will use the permission : 'griefdefender.user.definition.flag.<preset>.<group>' and 'griefdefender.user.definition.option.<preset>.<group>'
 # The admin groups will use the permission : 'griefdefender.admin.definition.flag.<preset>.<group>' and 'griefdefender.admin.definition.option.<preset>.<group>'
 # Within each group, you can define definitions.
 # Each flag definition must be defined in the following format:
-#  enabled: Controls whether the definition is enabled. Accepts a value of 'true' or 'false'
-#  default-value: The default value to assign flag definition.
-#  description: The flag description to display on hover. Uses the legacy text format.
-#  permissions: The list of permissions to link to definition. Permissions can accept various contexts such as :
-#    flag=<linked-flag>: This context is used to link the permission to a GD specific flag. Ex. 'flag=block-break' would link permission to GD's block-break flag
-#    source=<id>: This context is used to specify a source id such as 'minecraft:creeper'.
-#    target=<id>: This context is used to specify a target id such as 'minecraft:chest'.
-#    state=<properties>: This context is used to specify a blockstate property such as 'state=lit:true'.
+# enabled: Controls whether the definition is enabled. Accepts a value of 'true' or 'false'
+# default-value: The default value to assign flag definition.
+# description: The flag description to display on hover. Uses the legacy text format.
+# permissions: The list of permissions to link to definition. Permissions can accept various contexts such as :
+# flag=<linked-flag>: This context is used to link the permission to a GD specific flag. Ex. 'flag=block-break' would link permission to GD's block-break flag
+# source=<id>: This context is used to specify a source id such as 'minecraft:creeper'.
+# target=<id>: This context is used to specify a target id such as 'minecraft:chest'.
+# state=<properties>: This context is used to specify a blockstate property such as 'state=lit:true'.
 # Note: All definitions that contain a definition context of 'gd_claim_default' or 'gd_claim_override' will be applied to permissions during server startup.
 # Note: Required if no source or target context is specified, the permission will default to ALL.
 # Note: Commonly used contexts are : flag, source, target, state, used_item, item_name, world, server

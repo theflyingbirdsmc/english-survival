@@ -11,20 +11,37 @@ powertoolsenabled: true
 accepting-pay: true
 baltop-exempt: false
 timestamps:
-  lastteleport: 0
+  lastteleport: 1724428566377
   lastheal: 0
   mute: 0
   jail: 0
   onlinejail: 0
-  logout: 1720468203900
-  login: 1720465488178
+  logout: 1724428615736
+  login: 1724428358909
 money: '0'
 last-account-name: Fuglen
 logoutlocation:
-  world: 408b04b1-d466-4a02-bb49-7afa4632fa0e
+  world: f2167234-bf6b-4e87-b0a3-beda8764b3ea
   world-name: world_english_survival
-  x: -1.334511847605248
-  y: 79.0
-  z: -61.30571033436296
-  yaw: -173.4581298828125
-  pitch: 66.72779083251953
+  x: 0.0
+  y: 69.61038606770713
+  z: 0.0
+  yaw: -178.09710693359375
+  pitch: -16.05572509765625
+lastlocation:
+  world: f2167234-bf6b-4e87-b0a3-beda8764b3ea
+  world-name: world_english_survival
+  x: 3247.234805186154
+  y: 73.0
+  z: 1627.9905983723459
+  yaw: -139.30361938476562
+  pitch: 0.6496295928955078
+homes:
+  home:
+    world: f2167234-bf6b-4e87-b0a3-beda8764b3ea
+    world-name: world_english_survival
+    x: 0.0
+    y: 69.0
+    z: 0.0
+    yaw: 0.0
+    pitch: 0.0

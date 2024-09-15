@@ -1,10 +1,10 @@
 # PlaceholderAPI
-# Version: 2.11.6
+# Version: 2.11.5
 # Created by: extended_clip
 # Contributors: https://github.com/PlaceholderAPI/PlaceholderAPI/graphs/contributors
 # Issues: https://github.com/PlaceholderAPI/PlaceholderAPI/issues
-# Expansions: https://placeholderapi.com/ecloud
-# Wiki: https://wiki.placeholderapi.com/
+# Expansions: https://api.extendedclip.com/all/
+# Wiki: https://github.com/PlaceholderAPI/PlaceholderAPI/wiki
 # Discord: https://helpch.at/discord
 # No placeholders are provided with this plugin by default.
 # Download placeholders: /papi ecloud
@@ -17,22 +17,24 @@ boolean:
 date_format: MM/dd/yy HH:mm:ss
 debug: false
 expansions:
-  server:
-    tps_color:
-      high: '&a'
-      low: '&c'
-      medium: '&e'
-    server_name: A Minecraft Server
-  pinger:
-    offline: '&cOffline'
-    check_interval: 30
-    online: '&aOnline'
   javascript:
     enable_parse_command: false
     debug: false
     github_script_downloads: false
     argument_split: ','
     use_quick_js: false
+  bungee:
+    check_interval: 30
+  pinger:
+    offline: '&cOffline'
+    check_interval: 30
+    online: '&aOnline'
+  server:
+    tps_color:
+      high: '&a'
+      low: '&c'
+      medium: '&e'
+    server_name: A Minecraft Server
   player:
     ping_value:
       high: 100
@@ -50,5 +52,3 @@ expansions:
       medium: '&e'
       high: '&c'
       low: '&a'
-  bungee:
-    check_interval: 30

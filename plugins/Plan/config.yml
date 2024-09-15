@@ -288,6 +288,8 @@ Plugins:
           - ExampleFaction
     GriefDefender:
         Enabled: true
+    Jobs:
+        Enabled: true
     LuckPerms:
         Enabled: true
     Permission Groups (Vault):
