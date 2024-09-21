@@ -30,7 +30,7 @@ Database:
         Host: tfb-network-db
         Port: 3306
         User: tfb_network
-        Password: $Z@jJKSLcd7xUekU5qF&VW3#ndU&mm
+        Password: ifFfF4cUeEYVXCZ4a5494sjVS8oBZL
         Database: tfb_network_plan
         # Launch options to append after mysql driver address
         Launch_options: "?rewriteBatchedStatements=true&useSSL=false&serverTimezone=UTC"

@@ -3,7 +3,7 @@ dependencies {
     implementation 'Server:Paper:1.21.1-77'
     implementation 'Plugin:Tebex:2.0.+'
     implementation 'Plugin:ChatControlRed:10.28.0'
-    implementation 'Plugin:CommandPanels:3.+'
+    implementation 'Plugin:CommandPanels:3.21.4.1'
     // implementation 'Plugin:CoreProtect:22.+'
     implementation 'Plugin:DecentHolograms:2.8.11'
     implementation 'Plugin:Essentials:2.21.0-dev+115-6157668'
