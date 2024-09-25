@@ -1,7 +1,7 @@
 database:
     # The database address and port. Use format host:port.
     # Note: MySQL and MariaDB default port to 3306
-    address: tfb-english-survival-db
+    address: tfb-cs-tmm-db
 
     # Enable this setting to force GD to always read and write from database.
     # Note: Enable this setting if you need to share database data across multiple servers.

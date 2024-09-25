@@ -201,7 +201,7 @@ MySQL:
     Server:
         SSL: true
         Port: 3306
-        Address: tfb-english-survival-db
+        Address: tfb-cs-tmm-db
         allowPublicKeyRetrieval: true
 
 #

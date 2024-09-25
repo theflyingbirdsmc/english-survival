@@ -128,12 +128,12 @@ panels:
       '33':
         material: CRAFTING_TABLE
         stack: 1
-        name: '%javascript_tfb_english-survival_name,{luckperms_meta_tfb-language}% &8(&7%pinger_gameversion_mc.theflyingbirds.net:30100%&8)'
+        name: '%javascript_tfb_cs-tmm_name,{luckperms_meta_tfb-language}% &8(&7%pinger_gameversion_mc.theflyingbirds.net:30100%&8)'
         lore:
-        - '&eOnline&7: &a%bungee_english-survival%'
-        - '%javascript_tfb_english-survival_lore,{luckperms_meta_tfb-language}%'
+        - '&eOnline&7: &a%bungee_cs-tmm%'
+        - '%javascript_tfb_cs-tmm_lore,{luckperms_meta_tfb-language}%'
         commands:
-        - server= english-survival
+        - server= cs-tmm
       '36':
         material: GRAY_STAINED_GLASS_PANE
         name: ' '

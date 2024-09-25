@@ -106,7 +106,7 @@ scoreboard:
       - '&f* &e⌚&7: &f%world_time_<world_vanilla>%'
       - '&f* &bUptime&7: &f%server_uptime%'
       - '&f* &bMemory&7: &f%memory-used%&7/&4%memory-max%'
-    english-survival:
+    cs-tmm:
       title: '&#ee2b23T&#f04923h&#f26622e &#3551d7F&#366dd9l&#3789dby&#38a4ddi&#39c0dfn&#3adce1g
         &#00ff00B&#3fff00i&#7dff00r&#bcff00d&#faff00s'
       lines:

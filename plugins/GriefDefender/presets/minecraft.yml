@@ -4,7 +4,7 @@
 # enabled=<true|false>: Whether the group is enabled.
 # admin-group=<true|false>: Whether this group is considered for admin use only.
 # Note: GUI toggles in PRESETS will always apply to current claim only.
-#      It is recommended not to assign this permission to users for best experience.
+#     It is recommended not to assign this permission to users for best experience.
 # value=<true|false>: This is used to set a default value for the definition. It is only used in conjunction with 'override=<type>, default=<type> settings.
 # contexts=["key=value"]: A list of definition contexts that will be applied to all permissions.
 # Note: This is primary used with 'default' and 'override' contexts. Ex. contexts=["default=global"]

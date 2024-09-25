@@ -1,39 +1,39 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: english-survival
+  name: cs-tmm
   namespace: tfb-servers
   labels:
-    backstage.io/kubernetes-id: english-survival
+    backstage.io/kubernetes-id: cs-tmm
 spec:
   type: NodePort
   ports:
-  - name: english-survival
+  - name: cs-tmm
     port: 30100
     targetPort: 30100
     nodePort: 30100
   selector:
-    run: english-survival
+    run: cs-tmm
 ---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: english-survival
+  name: cs-tmm
   namespace: tfb-servers
   labels:
-    run: english-survival
-    backstage.io/kubernetes-id: english-survival
+    run: cs-tmm
+    backstage.io/kubernetes-id: cs-tmm
 spec:
-  serviceName: "english-survival"
+  serviceName: "cs-tmm"
   replicas: 1
   selector:
     matchLabels:
-      run: english-survival
+      run: cs-tmm
   template:
     metadata:
       labels:
-        run: english-survival
-        backstage.io/kubernetes-id: english-survival
+        run: cs-tmm
+        backstage.io/kubernetes-id: cs-tmm
     spec:
       securityContext:
         runAsUser: 1000
@@ -54,7 +54,7 @@ spec:
         command: ["/bin/sh", "-c"]
         args: ["rm -rf /data/*.jar && rm -rf /data/plugins/*.jar"]
         volumeMounts:
-        - name: english-survival-pv
+        - name: cs-tmm-pv
           mountPath: /data
       - name: git-sync
         image: k8s.gcr.io/git-sync-amd64:v2.0.6
@@ -64,7 +64,7 @@ spec:
           mountPath: /git-data
         env:
         - name: GIT_SYNC_REPO
-          value: "https://github.com/theflyingbirdsmc/english-survival.git"
+          value: "https://github.com/theflyingbirdsmc/cs-tmm.git"
         - name: GIT_SYNC_BRANCH
           value: "main"
         - name: GIT_SYNC_ROOT
@@ -82,12 +82,12 @@ spec:
         volumeMounts:
         - name: git-repo-volume
           mountPath: /git-data
-        - name: english-survival-pv
+        - name: cs-tmm-pv
           mountPath: /data
       - name: gradle-build
         image: gradle:latest
         volumeMounts:
-        - name: english-survival-pv
+        - name: cs-tmm-pv
           mountPath: /data
         env:
         - name: MAVEN_URL
@@ -105,7 +105,7 @@ spec:
         command: ["/bin/sh", "-c"]
         args: ["cd /data && gradle update -PmavenUrl=$MAVEN_URL -PmavenUsername=$MAVEN_USERNAME -PmavenPassword=$MAVEN_PASSWORD"]
       containers:
-      - name: english-survival
+      - name: cs-tmm
         image: itzg/minecraft-server:java21
         env:
           - name: EULA
@@ -117,7 +117,7 @@ spec:
           - name: ONLINE_MODE
             value: "FALSE"
           - name: SERVER_NAME
-            value: "english-survival"
+            value: "cs-tmm"
           - name: "MEMORY"
             value: "12G"
         ports:
@@ -129,7 +129,7 @@ spec:
             runAsGroup: 0
             allowPrivilegeEscalation: true
         volumeMounts:
-          - name: english-survival-pv
+          - name: cs-tmm-pv
             mountPath: /data
           - name: git-repo-volume
             mountPath: /git-data
@@ -149,7 +149,7 @@ spec:
           periodSeconds: 60
   volumeClaimTemplates:
   - metadata:
-      name: english-survival-pv
+      name: cs-tmm-pv
     spec:
       accessModes: ["ReadWriteOnce"]
       resources:
@@ -159,18 +159,18 @@ spec:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: tfb-english-survival-db
+  name: tfb-cs-tmm-db
   namespace: tfb-servers
 spec:
-  serviceName: "tfb-english-survival-db"
+  serviceName: "tfb-cs-tmm-db"
   replicas: 1
   selector:
     matchLabels:
-      app: tfb-english-survival-db
+      app: tfb-cs-tmm-db
   template:
     metadata:
       labels:
-        app: tfb-english-survival-db
+        app: tfb-cs-tmm-db
     spec:
       containers:
       - name: mariadb
@@ -207,11 +207,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: tfb-english-survival-db
+  name: tfb-cs-tmm-db
   namespace: tfb-servers
 spec:
   ports:
   - port: 3306
     targetPort: 3306
   selector:
-    app: tfb-english-survival-db
+    app: tfb-cs-tmm-db
