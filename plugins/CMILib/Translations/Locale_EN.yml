@@ -649,9 +649,9 @@ Location:
   Pitch: '&ePitch: &6[pitch]'
   Yaw: '&eYaw: &6[yaw]'
   WorldNames:
-  - world_english_survival-&2World English Survival
-  - world_english_survival_nether-&2World English Survival Nether
-  - world_english_survival_the_end-&2World English Survival The End
+  - world_cs_tmm-&2World English Survival
+  - world_cs_tmm_nether-&2World English Survival Nether
+  - world_cs_tmm_the_end-&2World English Survival The End
 Locations: '&7Locations: '
 command:
   help:

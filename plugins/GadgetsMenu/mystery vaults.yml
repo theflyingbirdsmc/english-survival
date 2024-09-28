@@ -2,14 +2,14 @@ Mystery-Vaults:
   cs-tmm-right:
     BlockFace: WEST
     Location:
-      world: world_english_survival
+      world: world_cs_tmm
       x: 9.0
       y: 66.0
       z: -17.0
   cs-tmm-left:
     BlockFace: EAST
     Location:
-      world: world_english_survival
+      world: world_cs_tmm
       x: -9.0
       y: 66.0
       z: -17.0

@@ -1,7 +1,7 @@
 spawns:
   default:
     world: 3e1aabc7-09f3-432d-9f70-f92bc8acf5dc
-    world-name: world_english_survival
+    world-name: world_cs_tmm
     x: 0.5
     y: 69.0
     z: 0.5
